@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/', "CategoriaController@notific");
+Route::get('/v1/categorias', "CategoriaController@index");
+Route::get('/v1/categoria/{id}', "CategoriaController@show");
+Route::post('/v1/categoria/inserir','CategoriaController@store');
+Route::put('/v1/categoria/alterar','CategoriaController@update');
+Route::delete('/v1/categoria/deletar/{id}','CategoriaController@destroy');
